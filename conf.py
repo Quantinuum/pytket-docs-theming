@@ -75,7 +75,7 @@ autodoc_type_aliases = {
 }
 
 linkcheck_ignore = [
-    "https://github.com/CQCL/tket#how-to-build-tket-and-pytket",
+    "https://github.com/Quantinuum/tket#how-to-build-tket-and-pytket",
     "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
     "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
 ]
@@ -138,7 +138,7 @@ intersphinx_mapping = {
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
     "pytket-stim": (ext_url + "pytket-stim/", None),
     "pytket-quest": (ext_url + "pytket-quest/", None),
-    "pytket-aqt": ("https://cqcl.github.io/pytket-aqt/api/", None),
+    "pytket-aqt": ("https://Quantinuum.github.io/pytket-aqt/api/", None),
 }
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
