@@ -24,7 +24,7 @@
 //    "navIconLinks": [
 //        {
 //            "title": "TKET Github",
-//            "href": "https://github.com/CQCL/tket",
+//            "href": "https://github.com/Quantinuum/tket",
 //            "pathMatch": "somewhere",
 //            "iconImageURL": "_static/assets/github.svg",
 //        },

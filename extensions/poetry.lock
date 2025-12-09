@@ -1740,7 +1740,7 @@ furo = "^2024.5.6"
 
 [package.source]
 type = "git"
-url = "https://github.com/CQCL/quantinuum-sphinx.git"
+url = "https://github.com/Quantinuum/quantinuum-sphinx.git"
 reference = "HEAD"
 resolved_reference = "f72f55749533e73f5ed5beeb5e48f53487ade657"
 
