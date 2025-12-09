@@ -1,6 +1,6 @@
 # Building the API docs for pytket extensions
 
-The configuration for the docs build is shared across different repositories by using [pytket-docs-theming](https://github.com/CQCL/pytket-docs-theming) as a submodule. This repository also contains the dependencies for building the docs for the pytket extensions. If you encounter issues related to docs configuration, feel free to open an [issue](https://github.com/CQCL/pytket-docs-theming/issues).
+The configuration for the docs build is shared across different repositories by using [pytket-docs-theming](https://github.com/Quantinuum/pytket-docs-theming) as a submodule. This repository also contains the dependencies for building the docs for the pytket extensions. If you encounter issues related to docs configuration, feel free to open an [issue](https://github.com/Quantinuum/pytket-docs-theming/issues).
 
 Unfamiliar with submodules? Check out this [github blog post](https://github.blog/open-source/git/working-with-submodules/). 
 
@@ -12,7 +12,7 @@ If you are doing this for the first time, the submodule can be added as follows
 
 ```shell
 cd docs
-git submodule add -b main https://github.com/CQCL/pytket-docs-theming.git
+git submodule add -b main https://github.com/Quantinuum/pytket-docs-theming.git
 ```
 
 If you are coming back to this repository after some time, ensure that you are using the latest version of the submodule

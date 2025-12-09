@@ -17,4 +17,4 @@ dependencies = [
 
 
 [tool.uv.sources]
-quantinuum-sphinx = { git = "https://github.com/CQCL/quantinuum-sphinx.git" }
+quantinuum-sphinx = { git = "https://github.com/Quantinuum/quantinuum-sphinx.git" }

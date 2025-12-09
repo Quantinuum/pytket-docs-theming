@@ -940,7 +940,7 @@ requires-dist = [
     { name = "enum-tools", extras = ["sphinx"], specifier = ">=0.13.0" },
     { name = "furo", specifier = ">=2024.8.6" },
     { name = "myst-nb", specifier = ">=1.2.0" },
-    { name = "quantinuum-sphinx", git = "https://github.com/CQCL/quantinuum-sphinx.git" },
+    { name = "quantinuum-sphinx", git = "https://github.com/Quantinuum/quantinuum-sphinx.git" },
     { name = "sphinx", specifier = ">=8.2.3" },
     { name = "sphinx-autodoc-typehints", specifier = ">=3.2.0" },
     { name = "sphinx-copybutton", specifier = ">=0.5.2" },
@@ -1019,7 +1019,7 @@ wheels = [
 [[package]]
 name = "quantinuum-sphinx"
 version = "0.1.0"
-source = { git = "https://github.com/CQCL/quantinuum-sphinx.git#f72f55749533e73f5ed5beeb5e48f53487ade657" }
+source = { git = "https://github.com/Quantinuum/quantinuum-sphinx.git#f72f55749533e73f5ed5beeb5e48f53487ade657" }
 dependencies = [
     { name = "furo" },
 ]
