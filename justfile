@@ -1,4 +1,5 @@
 prepare:
+    cp -R pytket-docs-theming/_static .
     cp pytket-docs-theming/conf.py .
     cp pytket-docs-theming/pyproject.toml .
     cp pytket-docs-theming/uv.lock .
