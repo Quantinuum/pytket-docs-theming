@@ -22,7 +22,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "myst_nb",
     "sphinxcontrib.googleanalytics",
-    "quantinuum_sphinx"
+    "quantinuum_sphinx",
 ]
 
 nitpicky = True
@@ -35,8 +35,8 @@ nitpick_ignore = {
     ("py:class", "numpy.ndarray[dtype=complex128, shape=(8, 8), order='F']"),
     ("py:class", "numpy.ndarray[dtype=complex128, shape=(*), order='C']"),
     ("py:class", "JSON"),
-    # numpy type aliases are documented as data rather than classes, so when 
-    # used in signatures sphinx cannot find the cross-reference as it only 
+    # numpy type aliases are documented as data rather than classes, so when
+    # used in signatures sphinx cannot find the cross-reference as it only
     # looks for classes
     ("py:class", "numpy.typing.ArrayLike"),
     # similar for our own type aliases
@@ -44,11 +44,23 @@ nitpick_ignore = {
     # some packages don't expose all of their classes
     ("py:class", "qiskit_aer.backends.aerbackend.AerBackend"),
     ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRQueued"),
-    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRROngoing"),
-    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRFinished"),
+    (
+        "py:class",
+        "qiskit_aqt_provider.api_client.models_generated.JobResponseRROngoing",
+    ),
+    (
+        "py:class",
+        "qiskit_aqt_provider.api_client.models_generated.JobResponseRRFinished",
+    ),
     ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRError"),
-    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRCancelled"),
-    ("py:class", "qiskit_ibm_runtime.models.backend_configuration.QasmBackendConfiguration"),
+    (
+        "py:class",
+        "qiskit_aqt_provider.api_client.models_generated.JobResponseRRCancelled",
+    ),
+    (
+        "py:class",
+        "qiskit_ibm_runtime.models.backend_configuration.QasmBackendConfiguration",
+    ),
     ("py:class", "qiskit_ibm_runtime.models.backend_properties.BackendProperties"),
     ("py:class", "qujax.utils.CallableArrayAndOptionalArray"),
     ("py:class", "qujax.utils.CallableOptionalArray"),
@@ -57,7 +69,7 @@ nitpick_ignore = {
     ("py:class", "jinja2.nodes.Output"),
     ("py:class", "numpy.float64"),
     ("py:class", "qulacs_core.QuantumCircuit"),
-    ("py:class", "Value"), # pyqir.Value cannot be found
+    ("py:class", "Value"),  # pyqir.Value cannot be found
     # matplotlib not always installed and referred to using a string name in pytket-quantinuum
     ("py:class", "matplotlib.figure.Figure"),
 }
@@ -181,12 +193,12 @@ if repo_name == "pytket":
         "pytket._tket.circuit.Circuit.get_rng_num",
         "pytket._tket.circuit.Circuit.set_rng_bound",
         "pytket._tket.circuit.Circuit.set_rng_index",
-        "pytket._tket.circuit.Circuit.set_rng_seed"
+        "pytket._tket.circuit.Circuit.set_rng_seed",
     ]
 elif repo_name == "pytket-qir":
     coverage_modules = ["pytket.qir"]
 else:
-    extension_name = repo_name[7:] # remove "pytket-" prefix
+    extension_name = repo_name[7:]  # remove "pytket-" prefix
     coverage_modules = ["pytket.extensions." + extension_name]
 coverage_statistics_to_stdout = False
 coverage_show_missing_items = True
@@ -211,6 +223,7 @@ exclude_patterns = [
     "jupyter_execute/*",
     ".jupyter_cache",
     "*.venv",
+    "docs/.venv",
     "README.md",
     "**/README.md",
     ".jupyter_cache",
