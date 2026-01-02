@@ -207,6 +207,7 @@ exclude_patterns = [
     "jupyter_execute/*",
     ".jupyter_cache",
     "*.venv",
+    "docs/.venv",
     "README.md",
     "**/README.md",
     ".jupyter_cache",
