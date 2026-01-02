@@ -150,6 +150,7 @@ intersphinx_mapping = {
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
     "pytket-stim": (ext_url + "pytket-stim/", None),
     "pytket-quest": (ext_url + "pytket-quest/", None),
+    "pytket-aqt": ("https://Quantinuum.github.io/pytket-aqt/api/", None),
 }
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
@@ -177,8 +178,23 @@ if repo_name == "pytket":
         "add_wasm",
         "add_wasm_to_reg",
         "add_clexpr_from_logicexp",
+        "get_job_shot_num",
+        "get_rng_num",
+        "set_rng_bound",
+        "set_rng_index",
+        "set_rng_seed",
     ]
     coverage_ignore_modules = ["libtket", "libtklog", "pytket.extensions", "pytket.qir"]
+    coverage_ignore_pyobjects = [
+        "pytket._tket.circuit.Circuit.add_wasm",
+        "pytket._tket.circuit.Circuit.add_wasm_to_reg",
+        "pytket._tket.circuit.Circuit.add_clexpr_from_logicexp",
+        "pytket._tket.circuit.Circuit.get_job_shot_num",
+        "pytket._tket.circuit.Circuit.get_rng_num",
+        "pytket._tket.circuit.Circuit.set_rng_bound",
+        "pytket._tket.circuit.Circuit.set_rng_index",
+        "pytket._tket.circuit.Circuit.set_rng_seed"
+    ]
 elif repo_name == "pytket-qir":
     coverage_modules = ["pytket.qir"]
 else:
