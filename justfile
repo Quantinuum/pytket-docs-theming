@@ -12,10 +12,10 @@ build *SPHINX_ARGS: install
     uv run sphinx-build {{SPHINX_ARGS}} -b html . build -D html_title={{PROJECT_NAME}}
 
 linkcheck: install
-    cd docs && sphinx-build -b linkcheck . build
+    uv run sphinx-build -b linkcheck . build
 
 coverage: install
-    sphinx-build -v -b coverage . build/coverage
+    uv run sphinx-build -v -b coverage . build/coverage
 
 build-strict: install
     just build -W # Fail on sphinx warnings
