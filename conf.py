@@ -58,6 +58,7 @@ nitpick_ignore = {
     ("py:class", "Value"),  # pyqir.Value cannot be found
     # matplotlib not always installed and referred to using a string name in pytket-quantinuum
     ("py:class", "matplotlib.figure.Figure"),
+    ("py:data", "typing.Union"),
 }
 
 nitpick_ignore_regex = {
