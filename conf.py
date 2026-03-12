@@ -59,6 +59,9 @@ nitpick_ignore = {
     # matplotlib not always installed and referred to using a string name in pytket-quantinuum
     ("py:class", "matplotlib.figure.Figure"),
     ("py:data", "typing.Union"),
+    ("py:class", "pytket.circuit.ClassicalOp"),
+    ("py:class", "pytket.circuit.EdgeType"),
+    ("py:class", "pytket._tket.circuit.EdgeType"),
 }
 
 nitpick_ignore_regex = {
