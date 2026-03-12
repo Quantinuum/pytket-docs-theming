@@ -43,20 +43,6 @@ nitpick_ignore = {
     ("py:class", "pytket.utils.distribution.T0"),
     # some packages don't expose all of their classes
     ("py:class", "qiskit_aer.backends.aerbackend.AerBackend"),
-    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRQueued"),
-    (
-        "py:class",
-        "qiskit_aqt_provider.api_client.models_generated.JobResponseRROngoing",
-    ),
-    (
-        "py:class",
-        "qiskit_aqt_provider.api_client.models_generated.JobResponseRRFinished",
-    ),
-    ("py:class", "qiskit_aqt_provider.api_client.models_generated.JobResponseRRError"),
-    (
-        "py:class",
-        "qiskit_aqt_provider.api_client.models_generated.JobResponseRRCancelled",
-    ),
     (
         "py:class",
         "qiskit_ibm_runtime.models.backend_configuration.QasmBackendConfiguration",
@@ -77,8 +63,6 @@ nitpick_ignore = {
 nitpick_ignore_regex = {
     # cirq appears to no longer use sphinx, so every cross-ref will fail
     ("py:.*", "cirq.*"),
-    # no online docs found for mtkahypar (used in pytket-aqt)
-    ("py:.*", "mtkahypar.*"),
 }
 
 autodoc_type_aliases = {
@@ -130,7 +114,6 @@ intersphinx_mapping = {
     "braket": ("https://amazon-braket-sdk-python.readthedocs.io/en/latest", None),
     "iqm": ("https://iqm-finland.github.io/iqm-client/", None),
     "pennylane": ("https://docs.pennylane.ai/en/stable", None),
-    "projectq": ("https://projectq.readthedocs.io/en/latest", None),
     "pyquil": ("https://pyquil-docs.rigetti.com/en/stable", None),
     "pyzx": ("https://pyzx.readthedocs.io/en/latest", None),
     "pytket": (pytketdoc_base + "api-docs/", None),
@@ -145,12 +128,10 @@ intersphinx_mapping = {
     "pytket-braket": (ext_url + "pytket-braket/", None),
     "pytket-pyquil": (ext_url + "pytket-pyquil/", None),
     "pytket-pysimplex": (ext_url + "pytket-pysimplex/", None),
-    "pytket-projectq": (ext_url + "pytket-projectq/", None),
     "pytket-qulacs": (ext_url + "pytket-qulacs/", None),
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
     "pytket-stim": (ext_url + "pytket-stim/", None),
     "pytket-quest": (ext_url + "pytket-quest/", None),
-    "pytket-aqt": ("https://Quantinuum.github.io/pytket-aqt/api/", None),
 }
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
