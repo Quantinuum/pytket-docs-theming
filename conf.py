@@ -60,6 +60,7 @@ nitpick_ignore = {
     ("py:class", "matplotlib.figure.Figure"),
     ("py:data", "typing.Union"),
     ("py:class", "pytket.circuit.ClassicalOp"),
+    ("py:class", "pytket._tket.circuit.ClassicalOp"),
     ("py:class", "pytket.circuit.EdgeType"),
     ("py:class", "pytket._tket.circuit.EdgeType"),
 }
