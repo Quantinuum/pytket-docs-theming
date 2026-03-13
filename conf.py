@@ -80,6 +80,11 @@ linkcheck_ignore = [
     "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
 ]
 
+linkcheck_anchors_ignore_for_url = [
+    "https://github.com/quantinuum/tket",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html",
+]
+
 autosectionlabel_prefix_document = True
 
 myst_enable_extensions = [
