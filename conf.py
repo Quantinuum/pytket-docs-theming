@@ -25,6 +25,10 @@ extensions = [
     "quantinuum_sphinx",
 ]
 
+suppress_warnings = [
+    "intersphinx.external",
+]
+
 nitpicky = True
 
 nitpick_ignore = {
