@@ -71,6 +71,10 @@ autodoc_type_aliases = {
     "cp.ndarray": "cupy.ndarray",
 }
 
+suppress_warnings = [
+    "intersphinx.external",
+]
+
 linkcheck_ignore = [
     "https://github.com/Quantinuum/tket#how-to-build-tket-and-pytket",
     "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
