@@ -75,6 +75,7 @@ linkcheck_ignore = [
     "https://github.com/Quantinuum/tket#how-to-build-tket-and-pytket",
     "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
     "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
+    "docs.scipy.org",
 ]
 
 linkcheck_anchors_ignore_for_url = [
@@ -110,7 +111,7 @@ intersphinx_mapping = {
     "numpy": ("https://numpy.org/doc/stable/", None),
     "jax": ("https://docs.jax.dev/en/latest", None),
     "sympy": ("https://docs.sympy.org/latest/", None),
-    #"scipy": ("https://docs.scipy.org/doc/scipy/", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy/", None),
     "networkx": ("https://networkx.org/documentation/stable/", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "qiskit": ("https://docs.quantum.ibm.com/api/qiskit", None),
