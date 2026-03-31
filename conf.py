@@ -25,10 +25,6 @@ extensions = [
     "quantinuum_sphinx",
 ]
 
-suppress_warnings = [
-    "intersphinx.external",
-]
-
 nitpicky = True
 
 nitpick_ignore = {
@@ -79,13 +75,10 @@ linkcheck_ignore = [
     "https://github.com/Quantinuum/tket#how-to-build-tket-and-pytket",
     "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
     "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
-    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csc_matrix.html#scipy.sparse.csc_matrix",
-    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete",
 ]
 
 linkcheck_anchors_ignore_for_url = [
     "https://github.com/quantinuum/tket",
-    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html",
 ]
 
 autosectionlabel_prefix_document = True
@@ -117,7 +110,7 @@ intersphinx_mapping = {
     "numpy": ("https://numpy.org/doc/stable/", None),
     "jax": ("https://docs.jax.dev/en/latest", None),
     "sympy": ("https://docs.sympy.org/latest/", None),
-    "scipy": ("https://docs.scipy.org/doc/scipy/", None),
+    #"scipy": ("https://docs.scipy.org/doc/scipy/", None),
     "networkx": ("https://networkx.org/documentation/stable/", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "qiskit": ("https://docs.quantum.ibm.com/api/qiskit", None),
