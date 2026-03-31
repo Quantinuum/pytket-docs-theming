@@ -80,6 +80,7 @@ linkcheck_ignore = [
     "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
     "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
     "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csc_matrix.html#scipy.sparse.csc_matrix",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete",
 ]
 
 linkcheck_anchors_ignore_for_url = [
