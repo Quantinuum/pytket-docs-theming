@@ -75,7 +75,7 @@ linkcheck_ignore = [
     "https://github.com/Quantinuum/tket#how-to-build-tket-and-pytket",
     "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
     "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
-    "docs.scipy.org",
+    "https://docs.scipy.org",
 ]
 
 linkcheck_anchors_ignore_for_url = [
