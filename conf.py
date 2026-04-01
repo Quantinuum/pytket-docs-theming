@@ -218,6 +218,7 @@ exclude_patterns = [
     "README.md",
     "**/README.md",
     ".jupyter_cache",
+     "build",
 ]
 
 autodoc_member_order = "groupwise"
