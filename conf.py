@@ -156,6 +156,9 @@ parent_directory = os.path.dirname(current_directory)
 
 repo_name = os.path.split(parent_directory)[1]
 
+if repo_name == "pytket-docs":
+    nitpicky = False
+
 # Don't execute pytket-cutensornet + pytket-azure examples, execute everything else.
 if repo_name in ("pytket-cutensornet", "pytket-azure"):
     nb_execution_mode = "off"
