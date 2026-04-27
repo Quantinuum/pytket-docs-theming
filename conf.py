@@ -80,7 +80,7 @@ linkcheck_ignore = [
     "https://quantumcomputing.stackexchange.com/questions/tagged/pytket",
     "https://tketusers.slack.com/join/shared_invite/zt-18qmsamj9-UqQFVdkRzxnXCcKtcarLRA#/shared-invite/email",
     "https://join.slack.com/t/tketusers/shared_invite/zt-3a7x4ots2-nZIUpOJ0cSnMM9E~oBm0xQ",
-    "https://tketusers.slack.com/join/shared_invite/zt-3a7x4ots2-nZIUpOJ0cSnMM9E~oBm0xQ)",
+    "https://tketusers.slack.com/join/shared_invite/zt-3a7x4ots2-nZIUpOJ0cSnMM9E~oBm0xQ",
     "https://docs.scipy.org",
 ]
 
