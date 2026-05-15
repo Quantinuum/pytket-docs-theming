@@ -125,8 +125,6 @@ intersphinx_mapping = {
     "qiskit_aer": ("https://qiskit.github.io/qiskit-aer", None),
     "braket": ("https://amazon-braket-sdk-python.readthedocs.io/en/latest", None),
     "iqm": ("https://iqm-finland.github.io/iqm-client/", None),
-    "pennylane": ("https://docs.pennylane.ai/en/stable", None),
-    "pyquil": ("https://pyquil-docs.rigetti.com/en/stable", None),
     "pyzx": ("https://pyzx.readthedocs.io/en/latest", None),
     "pytket": (pytketdoc_base + "api-docs/", None),
     "pytket-qiskit": (ext_url + "pytket-qiskit/", None),
@@ -134,16 +132,10 @@ intersphinx_mapping = {
         ext_url + "pytket-quantinuum/",
         None,
     ),
-    "pytket-pennylane": (ext_url + "pytket-pennylane/", None),
     "pytket-qujax": (ext_url + "pytket-qujax/", None),
-    "pytket-cirq": (ext_url + "pytket-cirq/", None),
     "pytket-braket": (ext_url + "pytket-braket/", None),
-    "pytket-pyquil": (ext_url + "pytket-pyquil/", None),
-    "pytket-pysimplex": (ext_url + "pytket-pysimplex/", None),
     "pytket-qulacs": (ext_url + "pytket-qulacs/", None),
     "pytket-iqm": (ext_url + "pytket-iqm/", None),
-    "pytket-stim": (ext_url + "pytket-stim/", None),
-    "pytket-quest": (ext_url + "pytket-quest/", None),
 }
 
 # Bit of a hack to avoid executing cutensornet notebooks (needs GPUs)
