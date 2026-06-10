@@ -71,6 +71,103 @@ autodoc_type_aliases = {
     "cp.ndarray": "cupy.ndarray",
 }
 
+
+def _normalise_pytket_public_names(text):
+    """Rewrite private pytket extension-module names to public API module names."""
+    if text is None:
+        return None
+    return text.replace("pytket._tket.", "pytket.")
+
+
+def _normalise_pytket_signature(
+    app, obj_type, name, obj, options, signature, return_annotation
+):
+    """Normalise autodoc signatures before Sphinx turns them into references.
+
+    Some pytket classes are implemented in the private ``pytket._tket``
+    extension module but are documented under public ``pytket`` modules. This
+    keeps displayed parameter and return annotations aligned with the public
+    documentation paths.
+    """
+    return (
+        _normalise_pytket_public_names(signature),
+        _normalise_pytket_public_names(return_annotation),
+    )
+
+
+def _normalise_pytket_docstring(app, obj_type, name, obj, options, lines):
+    """Normalise private pytket names in autodoc docstring text in place.
+
+    This catches overload blocks and other docstring-generated literal text
+    before it is parsed into the Sphinx doctree.
+    """
+    for index, line in enumerate(lines):
+        lines[index] = _normalise_pytket_public_names(line)
+
+
+def _normalise_pytket_node_value(value):
+    """Recursively normalise private pytket names in doctree node attributes."""
+    if isinstance(value, str):
+        return _normalise_pytket_public_names(value)
+    if isinstance(value, list):
+        return [_normalise_pytket_node_value(item) for item in value]
+    if isinstance(value, tuple):
+        return tuple(_normalise_pytket_node_value(item) for item in value)
+    if isinstance(value, dict):
+        return {
+            key: _normalise_pytket_node_value(item)
+            for key, item in value.items()
+        }
+    return value
+
+
+def _normalise_pytket_doctree(app, doctree, docname):
+    """Normalise private pytket names after cross-references are resolved.
+
+    Some reference nodes are created after autodoc has processed signatures and
+    docstrings, leaving private names in visible text or attributes such as link
+    titles. Walking the resolved doctree catches those final reference nodes.
+    """
+    from docutils import nodes
+
+    for node in doctree.findall():
+        if isinstance(node, nodes.Text):
+            normalised_text = _normalise_pytket_public_names(node.astext())
+            if normalised_text != node.astext():
+                node.parent.replace(node, nodes.Text(normalised_text))
+            continue
+
+        for key, value in tuple(node.attributes.items()):
+            node.attributes[key] = _normalise_pytket_node_value(value)
+
+
+def _normalise_pytket_generated_files(app, exception):
+    """Normalise generated text files that are outside the doctree pipeline.
+
+    Sphinx's viewcode extension writes ``_modules`` pages from highlighted
+    source code, so raw docstrings there do not pass through autodoc or doctree
+    hooks. This final pass rewrites generated HTML, JavaScript and text files
+    after a successful build so viewcode, search and source outputs agree with
+    the public API names.
+    """
+    if exception is not None:
+        return
+
+    for root, _dirs, filenames in os.walk(app.outdir):
+        for filename in filenames:
+            if not filename.endswith((".html", ".js", ".txt")):
+                continue
+
+            path = os.path.join(root, filename)
+            with open(path, encoding="utf-8") as file:
+                content = file.read()
+
+            normalised_content = _normalise_pytket_public_names(content)
+            if normalised_content != content:
+                with open(path, "w", encoding="utf-8") as file:
+                    file.write(normalised_content)
+
+
 suppress_warnings = [
     "intersphinx.external",
 ]
@@ -220,3 +317,11 @@ exclude_patterns = [
 
 autodoc_member_order = "groupwise"
 googleanalytics_id = "G-YPQ1FTGDL3"
+
+
+def setup(app):
+    """Register pytket public-name normalisation hooks with Sphinx."""
+    app.connect("autodoc-process-signature", _normalise_pytket_signature, priority=900)
+    app.connect("autodoc-process-docstring", _normalise_pytket_docstring, priority=900)
+    app.connect("doctree-resolved", _normalise_pytket_doctree, priority=900)
+    app.connect("build-finished", _normalise_pytket_generated_files, priority=900)
