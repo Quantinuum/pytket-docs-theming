@@ -71,6 +71,75 @@ autodoc_type_aliases = {
     "cp.ndarray": "cupy.ndarray",
 }
 
+
+def _normalise_pytket_public_names(text):
+    if text is None:
+        return None
+    return text.replace("pytket._tket.", "pytket.")
+
+
+def _normalise_pytket_signature(
+    app, obj_type, name, obj, options, signature, return_annotation
+):
+    return (
+        _normalise_pytket_public_names(signature),
+        _normalise_pytket_public_names(return_annotation),
+    )
+
+
+def _normalise_pytket_docstring(app, obj_type, name, obj, options, lines):
+    for index, line in enumerate(lines):
+        lines[index] = _normalise_pytket_public_names(line)
+
+
+def _normalise_pytket_node_value(value):
+    if isinstance(value, str):
+        return _normalise_pytket_public_names(value)
+    if isinstance(value, list):
+        return [_normalise_pytket_node_value(item) for item in value]
+    if isinstance(value, tuple):
+        return tuple(_normalise_pytket_node_value(item) for item in value)
+    if isinstance(value, dict):
+        return {
+            key: _normalise_pytket_node_value(item)
+            for key, item in value.items()
+        }
+    return value
+
+
+def _normalise_pytket_doctree(app, doctree, docname):
+    from docutils import nodes
+
+    for node in doctree.findall():
+        if isinstance(node, nodes.Text):
+            normalised_text = _normalise_pytket_public_names(node.astext())
+            if normalised_text != node.astext():
+                node.parent.replace(node, nodes.Text(normalised_text))
+            continue
+
+        for key, value in tuple(node.attributes.items()):
+            node.attributes[key] = _normalise_pytket_node_value(value)
+
+
+def _normalise_pytket_generated_files(app, exception):
+    if exception is not None:
+        return
+
+    for root, _dirs, filenames in os.walk(app.outdir):
+        for filename in filenames:
+            if not filename.endswith((".html", ".js", ".txt")):
+                continue
+
+            path = os.path.join(root, filename)
+            with open(path, encoding="utf-8") as file:
+                content = file.read()
+
+            normalised_content = _normalise_pytket_public_names(content)
+            if normalised_content != content:
+                with open(path, "w", encoding="utf-8") as file:
+                    file.write(normalised_content)
+
+
 suppress_warnings = [
     "intersphinx.external",
 ]
@@ -220,3 +289,10 @@ exclude_patterns = [
 
 autodoc_member_order = "groupwise"
 googleanalytics_id = "G-YPQ1FTGDL3"
+
+
+def setup(app):
+    app.connect("autodoc-process-signature", _normalise_pytket_signature, priority=900)
+    app.connect("autodoc-process-docstring", _normalise_pytket_docstring, priority=900)
+    app.connect("doctree-resolved", _normalise_pytket_doctree, priority=900)
+    app.connect("build-finished", _normalise_pytket_generated_files, priority=900)
