@@ -221,7 +221,7 @@ intersphinx_mapping = {
     "qiskit_ibm_runtime": ("https://docs.quantum.ibm.com/api/qiskit-ibm-runtime", None),
     "qiskit_aer": ("https://qiskit.github.io/qiskit-aer", None),
     "braket": ("https://amazon-braket-sdk-python.readthedocs.io/en/latest", None),
-    "iqm": ("https://iqm-finland.github.io/iqm-client/", None),
+    "iqm": ("https://docs.iqm.tech/iqm-client/", None),
     "pyzx": ("https://pyzx.readthedocs.io/en/latest", None),
     "pytket": (pytketdoc_base + "api-docs/", None),
     "pytket-qiskit": (ext_url + "pytket-qiskit/", None),
