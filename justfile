@@ -7,7 +7,7 @@ prepare:
 PROJECT_NAME := `basename "$(dirname "$PWD")"`
 
 install: prepare
-    uv sync && pip install ../{{ if PROJECT_NAME == "pytket-qiskit" { "[aer]" } else { "" } }}
+    uv sync && uv pip install ../{{ if PROJECT_NAME == "pytket-qiskit" { "[aer]" } else { "" } }}
 
 build *SPHINX_ARGS: install
     uv run sphinx-build {{SPHINX_ARGS}} -b html . build -D html_title={{PROJECT_NAME}}
