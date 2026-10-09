@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 import os
 
+import sphinx.ext.autodoc
+
+if not hasattr(sphinx.ext.autodoc, "logger"):  # enum-tools <=0.13 needs this on Sphinx 9
+    from sphinx.util import logging as _sphinx_logging
+
+    sphinx.ext.autodoc.logger = _sphinx_logging.getLogger("sphinx.ext.autodoc")
+
+# Sphinx 9's new autodoc ignores enum-tools' documenters, dropping enum members from automodule output.
+autodoc_use_legacy_class_based = True
+
 # Configuration file for the Sphinx documentation builder.
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html
 
