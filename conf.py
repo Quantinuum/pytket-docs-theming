@@ -1,9 +1,10 @@
-# -*- coding: utf-8 -*-
 import os
 
 import sphinx.ext.autodoc
 
-if not hasattr(sphinx.ext.autodoc, "logger"):  # enum-tools <=0.13 needs this on Sphinx 9
+if not hasattr(
+    sphinx.ext.autodoc, "logger"
+):  # enum-tools <=0.13 needs this on Sphinx 9
     from sphinx.util import logging as _sphinx_logging
 
     sphinx.ext.autodoc.logger = _sphinx_logging.getLogger("sphinx.ext.autodoc")
@@ -31,7 +32,6 @@ extensions = [
     "enum_tools.autoenum",
     "sphinx.ext.autosectionlabel",
     "myst_nb",
-    "sphinxcontrib.googleanalytics",
     "quantinuum_sphinx",
 ]
 
@@ -124,10 +124,7 @@ def _normalise_pytket_node_value(value):
     if isinstance(value, tuple):
         return tuple(_normalise_pytket_node_value(item) for item in value)
     if isinstance(value, dict):
-        return {
-            key: _normalise_pytket_node_value(item)
-            for key, item in value.items()
-        }
+        return {key: _normalise_pytket_node_value(item) for key, item in value.items()}
     return value
 
 
@@ -312,7 +309,7 @@ if repo_name == "pytket":
         "pytket._tket.circuit.Circuit.get_rng_num",
         "pytket._tket.circuit.Circuit.set_rng_bound",
         "pytket._tket.circuit.Circuit.set_rng_index",
-        "pytket._tket.circuit.Circuit.set_rng_seed"
+        "pytket._tket.circuit.Circuit.set_rng_seed",
     ]
 elif repo_name == "pytket-qir":
     coverage_modules = ["pytket.qir"]
@@ -346,11 +343,10 @@ exclude_patterns = [
     "README.md",
     "**/README.md",
     ".jupyter_cache",
-     "build",
+    "build",
 ]
 
 autodoc_member_order = "groupwise"
-googleanalytics_id = "G-YPQ1FTGDL3"
 
 
 def setup(app):
